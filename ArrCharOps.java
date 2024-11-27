@@ -203,6 +203,10 @@ public class ArrCharOps {
         if (str1 == null || str2 == null) {
             return -2;            
         }
+
+        // Make all letters small to ignore case sensetive as the test expects
+        str1 = str1.toLowerCase();
+        str2 = str2.toLowerCase();
         
         // Step 2: Compare characters one by one
         // Check and save which str is shorter.
