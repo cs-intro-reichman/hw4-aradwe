@@ -199,41 +199,32 @@ public class ArrCharOps {
      */
     public static int compareTo(String str1, String str2) {
         
-        // Validate the inputs
+        // Step 1: Validate the inputs
         if (str1 == null || str2 == null) {
             return -2;            
         }
         
-        if (str1.length() == str2.length()) {
-            int counter = 0;
-            for(int i = 0; i < str1.length(); i++){
-                if (str1.charAt(i) == str2.charAt(i)) {
-                    counter ++;
-                }
-            }
-
-            if (counter == str1.length()) {
-                return 0;                
-            }  
-        }
-        
-        // Check and save which str is shrter and which is longer.
+        // Step 2: Compare characters one by one
+        // Check and save which str is shorter.
         String shorterStr = (str1.length() < str2.length() ? str1 : str2);
-        String longerStr = (str1.length() > str2.length() ? str1 : str2);
-        
-        // Search in both strings for the first condition
         for(int i = 0; i < shorterStr.length(); i++){
-            
             if (str1.charAt(i) < str2.charAt(i)) {
-                return -1;
+                return -1; // str1 is lexicographically less than str2
             }
-            
             else if(str1.charAt(i) > str2.charAt(i)){
-                return 1;
+                return 1; // str1 is lexicographically greater than str2
             }
         }
-        // If all characters in the shorter string match the corresponding characters
-        // in the longer string, the shorter string is considered lexicographically smaller.
-        return 1;
+
+        // Step 3: If all characters are equal, compare lengths
+        if (str1.length() < str2.length()) {
+            return -1; // str1 is shorter, so it's lexicographically smaller
+        }
+        else if (str1.length() > str2.length()) {
+            return  1; // str1 is longer, so it's lexicographically greater             
+        }
+
+        // Step 4: Strings are equal in length and content
+        return 0;
     }
 }
