@@ -37,9 +37,8 @@ public class Primes {
             }
         }
         
-        // Calculate prime percentage (divide by n-1, since the range is from 2 to n)
-        Double primePrecentage = ((double)primeNumberCounter / (n)) * 100;
-        System.out.println(String.format("There are %d primes between 2 and %d (%.2f%% are primes)",
+        int primePrecentage = (int)((double)primeNumberCounter / (n) * 100); // Calculate prime percentage
+        System.out.println(String.format("There are %d primes between 2 and %d (%d%% are primes)",
          primeNumberCounter, n, primePrecentage));
     }
 }
