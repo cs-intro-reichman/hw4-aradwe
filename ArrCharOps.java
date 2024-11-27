@@ -65,8 +65,7 @@ public class ArrCharOps {
      */
     public static int indexOf(char[] arr, char ch) {
         // Check the given arry is not empty.
-        if (arr.length == 0) {
-            System.out.println("Unvalid argument - Empty arry!");
+        if (arr == null) {
             return -1;            
         }
         // Compare each char in arr at index i until finding a match.
@@ -82,8 +81,7 @@ public class ArrCharOps {
      */
     public static int indexOf(char[] arr, char ch, int fromIndex) {
          // Check the given arry is not empty.
-         if (arr.length == 0) {
-            System.out.println("Unvalid argument - Empty arry!");
+         if (arr == null) {
             return -1;            
         }
         // Compare each char in arr from given index starting point until finding a match.
@@ -100,8 +98,7 @@ public class ArrCharOps {
      */
     public static int lastIndexOf(char[] arr, char ch) {
          // Check the given arry is not empty.
-         if (arr.length == 0) {
-            System.out.println("Unvalid argument - Empty arry!");
+         if (arr == null) {
             return -1;            
         }
         // Compare each char in arr at index i until finding a match.
@@ -121,11 +118,10 @@ public class ArrCharOps {
         int concatArryIndex = 0;
 
         // Check the arrys are not empty. if empty - return -1
-        if (arr1.length == 0 || arr2.length == 0) {
-            char[] emptyArryReturnCode = {'-', '1'};
-            System.out.println("Unvalid argument - Empty arry!");
-            return emptyArryReturnCode;            
-        }
+        //if (arr1 == null || arr2 == null) {
+          //  char[] emptyArryReturnCode = {'-', '1'};
+            //return emptyArryReturnCode;            
+        //}
 
         // Add the first arry to the new arry
         for(int i = 0; i < arr1.length; i++){
@@ -172,7 +168,6 @@ public class ArrCharOps {
     public static long hashCode(char[] arr) {    
         // Check arry is not empty
         if(arr.length == 0){
-            System.out.println("Unvalid argument - Empty arry!");
             return -1;
         }
         
@@ -210,6 +205,11 @@ public class ArrCharOps {
      *         return -2 if there is an error with the input.
      */
     public static int compareTo(String str1, String str2) {
+        
+        // Validate the inputs
+        if (str1 == null || str2 == null) {
+            return -2;            
+        }
         
         if (str1.length() == str2.length()) {
             int counter = 0;
