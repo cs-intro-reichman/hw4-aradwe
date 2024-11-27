@@ -117,12 +117,6 @@ public class ArrCharOps {
         char[] concatArrys = new char[arr1.length + arr2.length];
         int concatArryIndex = 0;
 
-        // Check the arrys are not empty. if empty - return -1
-        //if (arr1 == null || arr2 == null) {
-          //  char[] emptyArryReturnCode = {'-', '1'};
-            //return emptyArryReturnCode;            
-        //}
-
         // Add the first arry to the new arry
         for(int i = 0; i < arr1.length; i++){
             concatArrys[i] = arr1[i];
@@ -167,14 +161,13 @@ public class ArrCharOps {
      */
     public static long hashCode(char[] arr) {    
         // Check arry is not empty
-        if(arr.length == 0){
-            return -1;
+        if(arr == null){
+            return 0;
         }
-        
-        int nCounter = 1;
+        // Compute hashcode following the instructions
         long hashCode = 0;
         for(int i =0; i < arr.length; i++){
-            hashCode += (arr[i] * 7) ^ (arr.length - nCounter);
+            hashCode += arr[i] * Math.pow(7, (arr.length - 1 -i));
         }
         return hashCode;
     }
