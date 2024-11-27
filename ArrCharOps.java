@@ -198,24 +198,28 @@ public class ArrCharOps {
      *         return -2 if there is an error with the input.
      */
     public static int compareTo(String str1, String str2) {
-        
         // Step 1: Validate the inputs
         if (str1 == null || str2 == null) {
             return -2;            
         }
-
-        // Make all letters small to ignore case sensetive as the test expects
-        str1 = str1.toLowerCase();
-        str2 = str2.toLowerCase();
+        if (str1 == "" || str2 == "") {
+            return -2;            
+        }
         
         // Step 2: Compare characters one by one
         // Check and save which str is shorter.
+        String abcString = "AaBbCcDdEeFfGgHhIJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
         String shorterStr = (str1.length() < str2.length() ? str1 : str2);
         for(int i = 0; i < shorterStr.length(); i++){
-            if (str1.charAt(i) < str2.charAt(i)) {
+            int char1Index = abcString.indexOf(str1.charAt(i));
+            int char2Index = abcString.indexOf(str2.charAt(i));
+            //char char1 = str1.charAt(i);
+            //char char2 = str2.charAt(i);
+            
+            if (char1Index < char2Index) {
                 return -1; // str1 is lexicographically less than str2
             }
-            else if(str1.charAt(i) > str2.charAt(i)){
+            else if(char1Index > char2Index){
                 return 1; // str1 is lexicographically greater than str2
             }
         }
